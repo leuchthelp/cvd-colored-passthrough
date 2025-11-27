@@ -1,93 +1,48 @@
-# TAI25-Team2
+## Setup
 
+### Getting Started:
 
+-----
+#### 1. First: Install a code editor (Visual Studio Code)
+For ease of use managing the files, we are going to use [Visual Studio Code](https://code.visualstudio.com/download). 
 
-## Getting started
+Head on over to the `Downloads` page to download and install `VSC`.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Once installed open the editor (`VSC`) and select the `Source Control` tab on the left hand side. It should be the third entry from the top.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+----
+#### 2. Second: Generate a Gitlab Access Token
 
-## Add your files
+Now we want to head on over to https://code.ovgu.de/flheinri/tai25-team2. Log into the OVGU-Gitlab instance with your university sign-on.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+Afterwards click on your `Profile-Icon` in the top left corner and click on `Preferences`. From head select `Personal Access Token` in the left drop-down menu and click on `Add new token` in the top right corner.
 
-```
-cd existing_repo
-git remote add origin https://code.ovgu.de/flheinri/tai25-team2.git
-git branch -M main
-git push -uf origin main
-```
+Give the new `Token` a `Token Name` to remember the token by. The `Expiration Date` can stay the same.
 
-## Integrate with your tools
+For the `Scope` select `api` and click on `Create Token`. 
 
-- [ ] [Set up project integrations](https://code.ovgu.de/flheinri/tai25-team2/-/settings/integrations)
+Now your token should be at the top of the page under `Personal Access Tokens`. You can either show the token or `copy` it. 
 
-## Collaborate with your team
+IMPORTANT: Copy the token for later use, you will not be shown the same token again. Once you leave the page or refresh it, the token will be gone and you will have to create a new one.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+-----
+#### 3. Third: Add the Repository to your  Source Control
+Back in `VSC` you want to click on `Clone Repository` and add the project link. You need to replace the `ACCESS-TOKEN` portion with the `Gitlab Access Token` we just created.
 
-## Test and Deploy
+https://oauth2:ACCESS-TOKEN@code.ovgu.de/flheinri/tai25-team2.git
 
-Use the built-in continuous integration in GitLab.
+Select the `Destination directory` to save the repository to and press on `Open`. 
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+You should now be able to see all related project files. 
 
-***
+-----
+#### 4. Fourth: Open the Unity Project in Unity Hub
+Download and install [Unity Hub](https://unity.com/download). Once finished, open Unity Hub and head on over the `Projects` tab. Click on `Add` in the top right and then select `Add project from disk`. Find the location your save the repository to from the prior step and hit open. 
 
-# Editing this README
+The Project should now have been loaded and the required version of Unity should be shown under the `Editor Version`.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Double click on the project to launch it and wait for Unity to finish. Unity should now install all required packages and files needed by the project.
 
-## Suggestions for a good README
+Once the project has finished loading and the `Unity Editor` has started up, select the `Impairment` folder in the `Project` window, located on the bottom left and open the `Impairment Project` scene. 
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+In here you should find one `Main Camera`, three `Spheres` under the `Sphere Parent` and one `Global Volume`. Click on the `Global Volume` and play around with the `Intensity` slider and `Mode` dropdown in the right `Inspector` tab to cycle through the different `Impairment Modes`.
