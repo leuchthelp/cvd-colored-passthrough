@@ -262,7 +262,7 @@ public sealed class ColorBlindPostProcessEffectRendererFeature : ScriptableRende
                 if (matrixType == 0)
                 {
                     // Do something with severity override in original volume. Disabling it entirely would make sense, need to figure out how.
-                    s_SharedPropertyBlock.SetFloat("_Severity", 0.0f);
+                    s_SharedPropertyBlock.SetFloat("_Severity", 1.0f);
                 }
                 else
                 {
