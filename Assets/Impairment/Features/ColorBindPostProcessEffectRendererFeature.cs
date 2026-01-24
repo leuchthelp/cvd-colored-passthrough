@@ -120,7 +120,7 @@ public sealed class ColorBlindPostProcessEffectRendererFeature : ScriptableRende
         {
             {
                 {
-                    new Color(0.856167f, 0.182038f, -0.038205f), new Color(0.029342f, 0.955115f, 0.015544f), new Color(-0.002880f, -0.001563f, 1.004443f) // Protanopia @ 10%
+                    new Color(0.856167f, 0.182038f, -0.038205f), new Color(0.029342f, 0.955115f, 0.015544f), new Color(-0.002880f, -0.001563f, 1.004443f)             // Protanopia @ 10%
                 },
                 {
                     new Color(0.734766f,  0.334872f,  -0.069637f), new Color(0.051840f,   0.919198f,  0.028963f), new Color(-0.004928f,   -0.004209f,     1.009137f)  // Protanopia @ 20%
@@ -149,60 +149,60 @@ public sealed class ColorBlindPostProcessEffectRendererFeature : ScriptableRende
             },
             {
                 {
-                    new Color(0.152286f, 1.052583f, -0.204868f), new Color(0.114503f, 0.786281f, 0.099216f), new Color(-0.003882f, -0.048116f, 1.051998f)  // Deuteronopia @ 10%
+                    new Color(0.866435f, 	0.177704f, 	-0.044139f), new Color(0.049567f, 	0.939063f, 	0.011370f), new Color(-0.003453f, 	0.007233f, 	0.996220f)  // Deuteronopia @ 10%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Deuteronopia @ 20%
+                    new Color(0.760729f, 	0.319078f, 	-0.079807f), new Color(0.090568f, 	0.889315f, 	0.020117f), new Color(-0.006027f, 	0.013325f, 	0.992702f)  // Deuteronopia @ 20%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Deuteronopia @ 30%
+                    new Color(0.675425f, 	0.433850f, 	-0.109275f), new Color(0.125303f, 	0.847755f, 	0.026942f), new Color(-0.007950f, 	0.018572f, 	0.989378f)  // Deuteronopia @ 30%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Deuteronopia @ 40%
+                    new Color(0.605511f, 	0.528560f, 	-0.134071f), new Color(0.155318f, 	0.812366f, 	0.032316f), new Color(-0.009376f, 	0.023176f, 	0.986200f)  // Deuteronopia @ 40%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Deuteronopia @ 50%
+                    new Color(0.547494f, 	0.607765f, 	-0.155259f), new Color(0.181692f, 	0.781742f, 	0.036566f), new Color(-0.010410f, 	0.027275f, 	0.983136f)  // Deuteronopia @ 50%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Deuteronopia @ 60%
+                    new Color(0.498864f, 	0.674741f, 	-0.173604f), new Color(0.205199f, 	0.754872f, 	0.039929f), new Color(-0.011131f, 	0.030969f, 	0.980162f)  // Deuteronopia @ 60%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Deuteronopia @ 70%
+                    new Color(0.457771f, 	0.731899f, 	-0.189670f), new Color(0.226409f, 	0.731012f, 	0.042579f), new Color(-0.011595f, 	0.034333f, 	0.977261f)  // Deuteronopia @ 70%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Deuteronopia @ 80%
+                    new Color(0.422823f, 	0.781057f, 	-0.203881f), new Color(0.245752f, 	0.709602f, 	0.044646f), new Color(-0.011843f, 	0.037423f, 	0.974421f)  // Deuteronopia @ 80%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Deuteronopia @ 90%
+                    new Color(0.392952f, 	0.823610f, 	-0.216562f), new Color(0.263559f, 	0.690210f, 	0.046232f), new Color(-0.011910f, 	0.040281f, 	0.971630f)  // Deuteronopia @ 90%
                 },
             },
             {
                 {
-                    new Color(0.152286f, 1.052583f, -0.204868f), new Color(0.114503f, 0.786281f, 0.099216f), new Color(-0.003882f, -0.048116f, 1.051998f)  // Tritanopia @ 10%
+                    new Color(0.926670f, 	0.092514f, 	-0.019184f), new Color(0.021191f, 	0.964503f, 	0.014306f), new Color(0.008437f, 	0.054813f, 	0.936750f)  // Tritanopia @ 10%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Tritanopia @ 20%
+                    new Color(0.895720f, 	0.133330f, 	-0.029050f), new Color(0.029997f, 	0.945400f, 	0.024603f), new Color(0.013027f, 	0.104707f, 	0.882266f)  // Tritanopia @ 20%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Tritanopia @ 30%
+                    new Color(0.905871f, 	0.127791f, 	-0.033662f), new Color(0.026856f, 	0.941251f, 	0.031893f), new Color(0.013410f, 	0.148296f, 	0.838294f)  // Tritanopia @ 30%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Tritanopia @ 40%
+                    new Color(0.948035f, 	0.089490f, 	-0.037526f), new Color(0.014364f, 	0.946792f, 	0.038844f), new Color(0.010853f, 	0.193991f, 	0.795156f)  // Tritanopia @ 40%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Tritanopia @ 50%
+                    new Color(1.017277f, 	0.027029f, 	-0.044306f), new Color(-0.006113f, 	0.958479f, 	0.047634f), new Color(0.006379f, 	0.248708f, 	0.744913f)  // Tritanopia @ 50%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Tritanopia @ 60%
+                    new Color(1.104996f, 	-0.046633f, 	-0.058363f), new Color(-0.032137f, 	0.971635f, 	0.060503f), new Color(0.001336f, 	0.317922f, 	0.680742f)  // Tritanopia @ 60%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Tritanopia @ 70%
+                    new Color(1.193214f, 	-0.109812f, 	-0.083402f), new Color(-0.058496f, 	0.979410f, 	0.079086f), new Color(-0.002346f, 	0.403492f, 	0.598854f)  // Tritanopia @ 70%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Tritanopia @ 80%
+                    new Color(1.257728f, 	-0.139648f, 	-0.118081f), new Color(-0.078003f, 	0.975409f, 	0.102594f), new Color(-0.003316f, 	0.501214f, 	0.502102f)  // Tritanopia @ 80%
                 },
                 {
-                    new Color(), new Color(), new Color()  // Tritanopia @ 90%
+                    new Color(1.278864f, 	-0.125333f, 	-0.153531f), new Color(-0.084748f, 	0.957674f, 	0.127074f), new Color(-0.000989f, 	0.601151f, 	0.399838f)  // Tritanopia @ 90%
                 },
             },
         };
@@ -254,6 +254,7 @@ public sealed class ColorBlindPostProcessEffectRendererFeature : ScriptableRende
                 var matrix = matrixSwitch[matrixType];
 
                 Color[] lowerMatrix = new Color[3];
+                Color[] upperMatrix = new[] { new Color(1f, 0f, 0f), new Color(0f, 1f, 0f), new Color(0f, 0f, 1f) };
 
                 if (mode + 1 <= matrix.GetLength(0)) { lowerMatrix = new[] { matrix[mode, 0], matrix[mode, 1], matrix[mode, 2] }; }
 
@@ -288,18 +289,19 @@ public sealed class ColorBlindPostProcessEffectRendererFeature : ScriptableRende
 
                     int upper = lower + 1;
 
-                    Debug.Log("severity: " + severity + " string: " + severity.ToString() + " lower: " + lower + " upper: " + upper);
 
-                    if (mode + 1 >= matrix.GetLength(0))
+                    if (mode + 1 > matrix.GetLength(0))
                     {
                         int severityMode = mode - 4; // -opia will be exactly 4 modes above, therefore we know which one it is.
+                        int severityModeIndex = severityMode -1;
+                        int lowerIndex = lower -1;
+                        int upperIndex = upper -1;
 
                         var normal = new[] { matrix[0, 0], matrix[0, 1], matrix[0, 2] };
                         var opia = new[] { matrix[severityMode, 0], matrix[severityMode, 1], matrix[severityMode, 2] };
 
+                        //Debug.Log("severity: " + severity + " string: " + severity.ToString() + " lower: " + lower + " upper: " + upper + " smode: " + severityMode + " mode: " + mode);
 
-
-                        Color[] upperMatrix;
                         if (lower == 0)
                         {
                             lowerMatrix = normal;
@@ -312,27 +314,24 @@ public sealed class ColorBlindPostProcessEffectRendererFeature : ScriptableRende
                         }
                         else if (upper == 10)
                         {
-                            lowerMatrix = new[] { machadoSeverityRGB[severityMode, lower, 0], machadoSeverityRGB[severityMode, lower, 1], machadoSeverityRGB[severityMode, lower, 2] };
+                            lowerMatrix = new[] { machadoSeverityRGB[severityModeIndex, lowerIndex, 0], machadoSeverityRGB[severityModeIndex, lowerIndex, 1], machadoSeverityRGB[severityModeIndex, lowerIndex, 2] };
                             upperMatrix = opia;
                         }
                         else
                         {
-                            lowerMatrix = new[] { machadoSeverityRGB[severityMode, lower, 0], machadoSeverityRGB[severityMode, lower, 1], machadoSeverityRGB[severityMode, lower, 2] };
-                            upperMatrix = new[] { machadoSeverityRGB[severityMode, upper, 0], machadoSeverityRGB[severityMode, upper, 1], machadoSeverityRGB[severityMode, upper, 2] };
+                            lowerMatrix = new[] { machadoSeverityRGB[severityModeIndex, lowerIndex, 0], machadoSeverityRGB[severityModeIndex, lowerIndex, 1], machadoSeverityRGB[severityModeIndex, lowerIndex, 2] };
+                            upperMatrix = new[] { machadoSeverityRGB[severityModeIndex, upperIndex, 0], machadoSeverityRGB[severityModeIndex, upperIndex, 1], machadoSeverityRGB[severityModeIndex, upperIndex, 2] };
                         }
-
-
-                        s_SharedPropertyBlock.SetColor("_upperR", upperMatrix[0]);
-                        s_SharedPropertyBlock.SetColor("_upperG", upperMatrix[1]);
-                        s_SharedPropertyBlock.SetColor("_upperB", upperMatrix[2]);
-
-
                     }
                 }
 
                 s_SharedPropertyBlock.SetColor("_lowerR", lowerMatrix[0]);
                 s_SharedPropertyBlock.SetColor("_lowerG", lowerMatrix[1]);
                 s_SharedPropertyBlock.SetColor("_lowerB", lowerMatrix[2]);
+
+                s_SharedPropertyBlock.SetColor("_upperR", upperMatrix[0]);
+                s_SharedPropertyBlock.SetColor("_upperG", upperMatrix[1]);
+                s_SharedPropertyBlock.SetColor("_upperB", upperMatrix[2]);
             }
 
             // Draw to the current render target.
