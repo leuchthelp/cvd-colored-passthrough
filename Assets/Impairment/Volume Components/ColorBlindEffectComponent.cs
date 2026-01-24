@@ -3,7 +3,11 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-
+public enum ColorBlindMatrixType
+{
+    CoblisV1 = 0,
+    Machado = 1
+}
 public enum ColorBlindMode
 {
     Normal = 0,
@@ -28,6 +32,16 @@ public enum ColorBlindMode
         public ColorBlindModeParameter(ColorBlindMode value, bool overrideState = false) : base(value, overrideState) { }
     }
 
+    public sealed class ColorBlindMatrixTypeParameter : VolumeParameter<ColorBlindMatrixType>
+    {
+        /// <summary>
+        /// Creates a new <see cref="ColorBlindMatrixTypeParameter"/> instance.
+        /// </summary>
+        /// <param name="value">The initial value to store in the parameter.</param>
+        /// <param name="overrideState">The initial override state for the parameter.</param>
+        public ColorBlindMatrixTypeParameter(ColorBlindMatrixType value, bool overrideState = false) : base(value, overrideState) { }
+    }
+    
 
 // Defines a custom Volume Override component that controls the intensity of the URP Post-processing effect on a Scriptable Renderer Feature.
 // For more information about the VolumeComponent API, refer to https://docs.unity3d.com/Packages/com.unity.render-pipelines.core@17.2/api/UnityEngine.Rendering.VolumeComponent.html
@@ -60,7 +74,11 @@ public sealed class ColorBlindEffectComponent : VolumeComponent, IPostProcessCom
     [SerializeField]
     public ClampedFloatParameter intensity = new(1f, 0f, 1f);
 
+    public ColorBlindMatrixTypeParameter type = new(ColorBlindMatrixType.CoblisV1);
+
     public ColorBlindModeParameter mode = new(ColorBlindMode.Normal);
+
+    public ClampedFloatParameter severity = new(1f, 0f, 1f);
 
     // Optional: Implement the IsActive() method of the IPostProcessComponent interface, and get the intensity value.
     public bool IsActive()
