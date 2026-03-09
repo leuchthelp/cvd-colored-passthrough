@@ -14,7 +14,7 @@ public sealed class ColorBlindPostProcessEffectRendererFeature : ScriptableRende
     // Declare the material used to render the post-processing effect.
     // Add a [SerializeField] attribute so Unity serializes the property and includes it in builds.
     [SerializeField]
-    //[HideInInspector]
+    [HideInInspector]
     private Material m_Material;
 
     // Declare the render pass that renders the effect.
