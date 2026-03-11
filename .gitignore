@@ -9,3 +9,5 @@ Logs/
 Temp/
 Assets/_Recovery/
 .utmp/
+.DS_Store
+build/
