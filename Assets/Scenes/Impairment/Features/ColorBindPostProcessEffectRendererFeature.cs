@@ -266,68 +266,6 @@ public sealed class ColorBlindPostProcessEffectRendererFeature : ScriptableRende
 
                 if (mode + 1 <= matrix.GetLength(0)) { lowerMatrix = new[] { matrix[mode, 0], matrix[mode, 1], matrix[mode, 2] }; }
 
-
-                Camera camera = Camera.main;
-                if (!camera.TryGetComponent<ARCameraManager>(out var m_CameraManager))
-                {
-                    Debug.Log("no camera manager");
-                }
-                else
-                {
-                    Debug.Log("success");
-                }
-
-
-                if (!m_CameraManager.TryAcquireLatestCpuImage(out XRCpuImage image))
-                {
-                    Debug.Log("no image found, most likely no headset running");
-                }
-                else
-                {
-                    // Set up our conversion params
-                    var conversionParams = new XRCpuImage.ConversionParams
-                    {
-                        // Convert the entire image
-                        inputRect = new RectInt(0, 0, image.width, image.height),
-
-                        // Output at full resolution
-                        outputDimensions = new Vector2Int(image.width, image.height),
-
-                        // Convert to RGBA format
-                        outputFormat = TextureFormat.RGBA32,
-
-                        // Flip across the vertical axis (mirror image)
-                        transformation = XRCpuImage.Transformation.MirrorY
-                    };
-
-                    // Create a Texture2D to store the converted image
-                    var texture = new Texture2D(image.width, image.height, TextureFormat.RGBA32, false);
-
-                    // Texture2D allows us write directly to the raw texture data as an optimization
-                    var rawTextureData = texture.GetRawTextureData<byte>();
-                    try
-                    {
-                        unsafe
-                        {
-                            // Synchronously convert to the desired TextureFormat
-                            image.Convert(
-                                conversionParams,
-                                new IntPtr(rawTextureData.GetUnsafePtr()),
-                                rawTextureData.Length);
-                        }
-                    }
-                    finally
-                    {
-                        // Dispose the XRCpuImage after we're finished to prevent any memory leaks
-                        image.Dispose();
-                    }
-
-                    // Apply the converted pixel data to our texture
-                    texture.Apply();
-                }
-
-
-
                 if (matrixType == 0)
                 {
                     // Do something with severity override in original volume. Disabling it entirely would make sense, need to figure out how.

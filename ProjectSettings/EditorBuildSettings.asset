@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Impairment/Impairment Project.unity
+    path: Assets/Scenes/Impairment/Impairment Project.unity
     guid: 3b0e95d9736884a41a5ee21d4bcb34b0
+  - enabled: 0
+    path: Assets/Scenes/Test/Test.unity
+    guid: a750dfd030a1f40e79692ee4fb52f3cc
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: e95fb5b20eafbe94a84c2e4927272640, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: d25bfdc71bd3c39498e96224faa9cfc7, type: 2}
@@ -16,4 +19,3 @@ EditorBuildSettings:
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 2059f21490b5a4c82bf2cb759c6eee0a, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6b5350edb33634e608558c6b2973bb6f, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 7cf1a4286f7474d5783f99dbb24d0a31, type: 2}
-  m_UseUCBPForAssetBundles: 0
