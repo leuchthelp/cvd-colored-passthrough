@@ -37,7 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5362ee05d9d5c14785b229daf924fb6, type: 3}
   m_Name: ColorBlindPostProcessEffectRendererFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   m_Material: {fileID: 2100000, guid: df5d25d041539604ab5fe905f3640440, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
