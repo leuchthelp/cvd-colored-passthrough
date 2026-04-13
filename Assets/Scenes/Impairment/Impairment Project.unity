@@ -994,6 +994,7 @@ GameObject:
   - component: {fileID: 1206415057}
   - component: {fileID: 1206415056}
   - component: {fileID: 1206415055}
+  - component: {fileID: 1206415059}
   m_Layer: 0
   m_Name: '[BuildingBlock] Passthrough Camera Visualizer'
   m_TagString: Untagged
@@ -1091,6 +1092,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1206415059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206415054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121808b2a52314a6da71ce04a3886d3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ColorBlindStateManager
+  type:
+    m_OverrideState: 0
+    m_Value: 0
+  mode:
+    m_OverrideState: 0
+    m_Value: 0
+  severity:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!1001 &1353103637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1359,7 +1381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1746973177
 MonoBehaviour:
   m_ObjectHideFlags: 0

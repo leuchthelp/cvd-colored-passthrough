@@ -73,9 +73,9 @@ public sealed class ColorBlindEffectComponent : VolumeComponent, IPostProcessCom
     [Tooltip("Enter the description for the property that is shown when hovered")]
     public ClampedFloatParameter intensity = new(1f, 0f, 1f, true);
 
-    public ColorBlindMatrixTypeParameter type = new(ColorBlindMatrixType.CoblisV1);
+    public EnumParameter<ColorBlindMatrixType> type = new(ColorBlindMatrixType.CoblisV1);
 
-    public ColorBlindModeParameter mode = new(ColorBlindMode.Normal);
+    public EnumParameter<ColorBlindMode> mode = new(ColorBlindMode.Normal);
 
     public ClampedFloatParameter severity = new(1f, 0f, 1f);
 
