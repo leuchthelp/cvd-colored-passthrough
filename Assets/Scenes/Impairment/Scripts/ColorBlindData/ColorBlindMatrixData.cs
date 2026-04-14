@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ColorBlindMatrixData", menuName = "Scriptable Objects/ColorBlindMatrixData")]
 public class ColorBlindMatrixData : ScriptableObject
 {
-    public static readonly Color[,] machadoRGB =
+    private static readonly Color[,] machadoRGB =
         {
             { new Color(1f,0f,-0f),   new Color(0f,1f,0f), new Color(-0f,0f,1f) },                                                                      // Normal
             { new Color(0.152286f, 1.052583f, -0.204868f), new Color(0.114503f, 0.786281f, 0.099216f), new Color(-0.003882f, -0.048116f, 1.051998f) },  // Protanopia
@@ -13,7 +13,7 @@ public class ColorBlindMatrixData : ScriptableObject
             { new Color(.299f, .587f, .114f), new Color(.299f, .587f, .114f), new Color(.299f, .587f, .114f) },                                         // Achromatopsia
         };
 
-    public static readonly Color[,] coblisV1RGB =
+    private static readonly Color[,] coblisV1RGB =
         {
             { new Color(1f,0f,0f),   new Color(0f,1f,0f), new Color(0f,0f,1f) },                                    // Normal
             { new Color(.56667f, .43333f, 0f), new Color(.55833f, .44167f, 0f), new Color(0f, .24167f, .75833f) },  // Protanopia
