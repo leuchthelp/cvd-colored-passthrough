@@ -12,3 +12,5 @@ Assets/_Recovery/
 .DS_Store
 build/
 *.blob
+Samples
+TextMesh Pro

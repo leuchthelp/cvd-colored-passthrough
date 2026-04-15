@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Test/Test.unity
     guid: a750dfd030a1f40e79692ee4fb52f3cc
+  - enabled: 0
+    path: "Assets/Samples/Meta XR Interaction \u200BSDK/85.0.0/Example Scenes/HandGrabExamples.unity"
+    guid: 39ae0e546b9edc0408d3b11c6a7c2814
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: e95fb5b20eafbe94a84c2e4927272640, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: d25bfdc71bd3c39498e96224faa9cfc7, type: 2}
