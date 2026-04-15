@@ -53,6 +53,10 @@ public class ColorBlindStateManager : MonoBehaviour
 
     public float severity = 1f;
 
+    public Material material;
+
+    private bool once = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -61,24 +65,36 @@ public class ColorBlindStateManager : MonoBehaviour
 
     void UpdateMaterialProperties()
     {
-        int current_type = (int)type;
-        int current_mode = (int)mode;
+        if (once == false)
+        {
+            GetComponent<Renderer>().material = new Material(material);
+            once = true;
+        }
 
-        var current_matrix = matrixSwitch[current_type];
-        float current_severity = severity;
+        var current_material = GetComponent<Renderer>().material;
+        Color[] current_matrix = { current_material.GetColor("_R"), current_material.GetColor("_G"), current_material.GetColor("_B") };
 
+        int requested_type = (int)type;
+        int requested_mode = (int)mode;
+        var requested_matrix = matrixSwitch[requested_type];
 
-        var material = GetComponent<Renderer>().material;
+        //Debug.Log("current R" + current_material.GetColor("_R") + " current G: " + current_material.GetColor("_G") + " current B: " + current_material.GetColor("_B"));
+        //Debug.Log("type: " + requested_type + " mode: " + requested_mode);
+        //Debug.Log("new R: " + requested_matrix[requested_mode, 0] + " new G: " + requested_matrix[requested_mode, 1] + " new B: " + requested_matrix[requested_mode, 2]);
 
-        //Debug.Log("mat name: " + material.name);
-        //Debug.Log("current R: " + material.GetColor("_R") + " current G: " + material.GetColor("_G") + " current B: " + material.GetColor("_B"));
+        if (current_matrix[0] != requested_matrix[requested_mode, 0])
+        {
 
-        //Debug.Log("type: " + current_type + " mode: " + current_mode + " severity: " + current_severity);
-        //Debug.Log("new R: " + current_matrix[current_mode, 0] + " new G: " + current_matrix[current_mode, 1] + " new B: " + current_matrix[current_mode, 2]);
+            current_material.SetColor("_R", requested_matrix[requested_mode, 0]);
+            current_material.SetColor("_G", requested_matrix[requested_mode, 1]);
+            current_material.SetColor("_B", requested_matrix[requested_mode, 2]);
 
-        material.SetColor("_R", current_matrix[current_mode, 0]);
-        material.SetColor("_G", current_matrix[current_mode, 1]);
-        material.SetColor("_B", current_matrix[current_mode, 2]);
-        material.SetFloat("_Severity", current_severity);
+        }
+
+        float current_severity = current_material.GetFloat("_Severity");
+        float requested_severity = severity;
+
+        if (requested_severity != current_severity)
+            current_material.SetFloat("_Severity", requested_severity);
     }
 }
