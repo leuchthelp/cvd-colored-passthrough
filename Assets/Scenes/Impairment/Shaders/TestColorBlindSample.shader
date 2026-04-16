@@ -1,6 +1,7 @@
 Shader "TestColorBlindSample" {
     Properties {
-        [MainTexture] _BaseMap("Base Map", 2D) = "white" {}
+        _LeftBaseMap("Left Base Map", 2D) = "white" {}
+        _RightBaseMap("Right Base Map", 2D) = "white" {}
         _R("R", Vector) = (1, 0, -0, 1)  
         _G("G", Vector) = (0, 1, 0, 1)
         _B("B", Vector) = (-0, -0, 1, 1)
@@ -11,9 +12,12 @@ Shader "TestColorBlindSample" {
         Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" }
 
         Pass {
+            Cull Off
+
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            #pragma multi_compile_instancing
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
@@ -29,11 +33,15 @@ Shader "TestColorBlindSample" {
                 UNITY_VERTEX_OUTPUT_STEREO
             };
 
-            TEXTURE2D(_BaseMap);
-            SAMPLER(sampler_BaseMap);
+            TEXTURE2D(_LeftBaseMap);
+            SAMPLER(sampler_LeftBaseMap);
+
+            TEXTURE2D(_RightBaseMap);
+            SAMPLER(sampler_RightBaseMap);
 
             CBUFFER_START(UnityPerMaterial)
-            float4 _BaseMap_ST;
+            float4 _LeftBaseMap_ST;
+            float4 _RightBaseMap_ST;
             float4 _R;
             float4 _G;
             float4 _B;
@@ -49,14 +57,25 @@ Shader "TestColorBlindSample" {
                 UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(OUT);
 
                 OUT.positionHCS = TransformObjectToHClip(IN.positionOS.xyz);
-                OUT.uv = TRANSFORM_TEX(IN.uv, _BaseMap);
+
+                #if (unity_StereoEyeIndex == 0) 
+                    OUT.uv = TRANSFORM_TEX(IN.uv, _LeftBaseMap);
+                #else
+                    OUT.uv = TRANSFORM_TEX(IN.uv, _RightBaseMap);
+                #endif 
                 return OUT;
             }
 
             float4 frag (Varyings IN) : SV_Target {
                 UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(IN);
                 // Set the color
-                float4 c = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv);
+                float4 c;
+                
+                #if (unity_StereoEyeIndex == 0) 
+                    c = SAMPLE_TEXTURE2D(_LeftBaseMap, sampler_LeftBaseMap, IN.uv);
+                #else 
+                    c = SAMPLE_TEXTURE2D(_RightBaseMap, sampler_RightBaseMap, IN.uv);
+                #endif               
 
                 float4 cb = float4
                 (
