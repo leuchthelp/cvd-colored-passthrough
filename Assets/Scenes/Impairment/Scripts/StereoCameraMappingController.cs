@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Meta.XR;
+using Meta.XR.ImmersiveDebugger.UserInterface.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
@@ -14,6 +16,8 @@ public class StereoCameraMappingController : MonoBehaviour
     [SerializeField, Range(-0.2f, 0f)] private float leftUvOffsetY;
     [SerializeField, Range(-0.2f, 0f)] private float rightUvOffsetX;
     [SerializeField, Range(-0.2f, 0f)] private float rightUvOffsetY;
+
+    [SerializeField] public Single rSeverity;
 
     private static readonly int LeftTexId = Shader.PropertyToID("_LeftTex");
     private static readonly int RightTexId = Shader.PropertyToID("_RightTex");
@@ -142,7 +146,8 @@ public class StereoCameraMappingController : MonoBehaviour
         UpdateEyeData(rightCameraAccess, false, material);
 
         UpdateMaterialProperties(material);
-        UpdatePriorTexture(material);
+        //UpdatePriorTexture(material);
+        Debug.Log(rSeverity);
     }
 
     private void UpdateEyeData(PassthroughCameraAccess cameraAccess, bool leftEye, Material material)
@@ -230,6 +235,11 @@ public class StereoCameraMappingController : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void GetRSeverity(float severity)
+    {
+        rSeverity = severity;
     }
 }
 
