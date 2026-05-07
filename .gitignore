@@ -7,3 +7,10 @@ Assets/InputSystem_Actions.inputactions
 Library/
 Logs/
 Temp/
+Assets/_Recovery/
+.utmp/
+.DS_Store
+build/
+*.blob
+Samples
+TextMesh Pro
