@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Meta.XR;
-using Meta.XR.ImmersiveDebugger.UserInterface.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
@@ -17,7 +16,7 @@ public class StereoCameraMappingController : MonoBehaviour
     [SerializeField, Range(-0.2f, 0f)] private float rightUvOffsetX;
     [SerializeField, Range(-0.2f, 0f)] private float rightUvOffsetY;
 
-    [SerializeField] public Single rSeverity;
+    public float severity = 1f;
 
     private static readonly int LeftTexId = Shader.PropertyToID("_LeftTex");
     private static readonly int RightTexId = Shader.PropertyToID("_RightTex");
@@ -42,54 +41,50 @@ public class StereoCameraMappingController : MonoBehaviour
     private static readonly int LeftUvOffsetId = Shader.PropertyToID("_LeftUvOffset");
     private static readonly int RightUvOffsetId = Shader.PropertyToID("_RightUvOffset");
 
-    private static readonly Vector4[,] machadoRGB =
+    private static readonly Vector3[,] machadoRGB =
         {
-            { new Vector4(1f,0f,-0f,1),   new Vector4(0f,1f,0f,1f), new Vector4(-0f,0f,1f,1) },                                                                      // Normal
-            { new Vector4(0.152286f, 1.052583f, -0.204868f,1f), new Vector4(0.114503f, 0.786281f, 0.099216f,1f), new Vector4(-0.003882f, -0.048116f, 1.051998f,1f) },  // Protanopia
-            { new Vector4(0.367322f, 0.860646f, -0.227968f,1f), new Vector4(0.280085f, 0.672501f, 0.047413f,1f), new Vector4(-0.011820f, 0.042940f, 0.968881f,1f) },   // Deuteranopia
-            { new Vector4(1.255528f, -0.076749f, -0.178779f,1f), new Vector4(-0.078411f, 0.930809f, 0.147602f,1f), new Vector4(0.004733f, 0.691367f, 0.303900f,1f) },  // Tritanopia
-            { new Vector4(.299f, .587f, .114f), new Vector4(.299f, .587f, .114f,1f), new Vector4(.299f, .587f, .114f,1f) },                                         // Achromatopsia
+            { new Vector3(1f,0f,-0f),   new Vector3(0f,1f,0f), new Vector3(-0f,0f,1f) },                                                                       // Normal
+            { new Vector3(0.152286f, 1.052583f, -0.204868f), new Vector3(0.114503f, 0.786281f, 0.099216f), new Vector3(-0.003882f, -0.048116f, 1.051998f) },   // Protanopia
+            { new Vector3(0.367322f, 0.860646f, -0.227968f), new Vector3(0.280085f, 0.672501f, 0.047413f), new Vector3(-0.011820f, 0.042940f, 0.968881f) },    // Deuteranopia
+            { new Vector3(1.255528f, -0.076749f, -0.178779f), new Vector3(-0.078411f, 0.930809f, 0.147602f), new Vector3(0.004733f, 0.691367f, 0.303900f) },   // Tritanopia
+            { new Vector3(.299f, .587f, .114f), new Vector3(.299f, .587f, .114f), new Vector3(.299f, .587f, .114f) },                                          // Achromatopsia
         };
 
-    private static readonly Vector4[,] coblisV1RGB =
+    private static readonly Vector3[,] coblisV1RGB =
         {
-            { new Vector4(1f,0f,0f,1f),   new Vector4(0f,1f,0f,1f), new Vector4(0f,0f,1f,1f) },                                    // Normal
-            { new Vector4(.56667f, .43333f, 0f,1f), new Vector4(.55833f, .44167f, 0f,1f), new Vector4(0f, .24167f, .75833f,1f) },  // Protanopia
-            { new Vector4(.625f, .375f, 0f,1f), new Vector4(.70f, .30f, 0f,1f), new Vector4(0f, .30f, .70f,1f) },                  // Deuteranopia
-            { new Vector4(.95f, .05f, 0,1f), new Vector4(0f, .43333f, .56667f,1f), new Vector4(0f, .475f, .525f,1f) },             // Tritanopia
-            { new Vector4(.299f, .587f, .114f,1f), new Vector4(.299f, .587f, .114f,1f), new Vector4(.299f, .587f, .114f,1f) },     // Achromatopsia
-            //{ new Vector4(.81667f, .18333f, 0f,1f), new Vector4(.33333f, .66667f, 0f,1f), new Vector4(0f, .125f, .875f,1f) },      // Protanomaly
-            //{ new Vector4(.80f, .20f, 0f,1f), new Vector4(.25833f, .74167f, 0,1f), new Vector4(0f, .14167f, .85833f,1f) },         // Deuteranomaly
-            //{ new Vector4(.96667f, .03333f, 0,1f), new Vector4(0f, .73333f, .26667f,1f), new Vector4(0f, .18333f, .81667f,1f) },   // Tritanomaly
-            //{ new Vector4(.618f, .32f, .062f,1f), new Vector4(.163f, .775f, .062f,1f), new Vector4(.163f, .320f, .516f,1f)  }      // Achromatomaly
+            { new Vector3(1f,0f,0f),   new Vector3(0f,1f,0f), new Vector3(0f,0f,1f) },                                    // Normal
+            { new Vector3(.56667f, .43333f, 0f), new Vector3(.55833f, .44167f, 0f), new Vector3(0f, .24167f, .75833f) },  // Protanopia
+            { new Vector3(.625f, .375f, 0f), new Vector3(.70f, .30f, 0f), new Vector3(0f, .30f, .70f) },                  // Deuteranopia
+            { new Vector3(.95f, .05f, 0), new Vector3(0f, .43333f, .56667f), new Vector3(0f, .475f, .525f) },             // Tritanopia
+            { new Vector3(.299f, .587f, .114f), new Vector3(.299f, .587f, .114f), new Vector3(.299f, .587f, .114f) },     // Achromatopsia
         };
 
-    public readonly List<Vector4[,]> matrixSwitch = new()
+    public readonly List<Vector3[,]> matrixSwitch = new()
         {
-            coblisV1RGB,
             machadoRGB,
+            coblisV1RGB,
         };
+
+    public enum ColorBlindModel
+    {
+        Machado,
+        CoblisV1,
+    }
+
+    public ColorBlindModel model;
+
+    public int current_model = -1;
 
     public enum ColorBlindType
     {
-        CoblisV1,
-        Machado,
-    }
-
-    public ColorBlindType type;
-
-    public enum ColorBlindMode
-    {
-        Normal,
         Protanopia,
         Deuteranopia,
         Tritanopia,
+        Normal,
         Achromatopsia,
     }
 
-    public ColorBlindMode mode;
-
-    public float severity = 1f;
+    public ColorBlindType type;
 
     private IEnumerator Start()
     {
@@ -147,7 +142,6 @@ public class StereoCameraMappingController : MonoBehaviour
 
         UpdateMaterialProperties(material);
         //UpdatePriorTexture(material);
-        Debug.Log(rSeverity);
     }
 
     private void UpdateEyeData(PassthroughCameraAccess cameraAccess, bool leftEye, Material material)
@@ -174,10 +168,10 @@ public class StereoCameraMappingController : MonoBehaviour
     private void UpdateMaterialProperties(Material material)
     {
         var current_material = material;
-        Vector4 current_r = current_material.GetVector("_R");
+        Vector3 current_r = current_material.GetVector("_R");
 
         int requested_type = (int)type;
-        int requested_mode = (int)mode;
+        int requested_mode = (int)model;
         var requested_matrix = matrixSwitch[requested_type];
 
         //Debug.Log("current R" + current_r + " current G: " + current_material.GetVector("_G") + " current B: " + current_material.GetVector("_B"));
@@ -237,9 +231,19 @@ public class StereoCameraMappingController : MonoBehaviour
         return null;
     }
 
-    public void GetRSeverity(float severity)
+    public void SetSeverity(float i_severity)
     {
-        rSeverity = severity;
+        severity = i_severity;
+    }
+
+    public void SetModel(int i_model)
+    {
+        model = (ColorBlindModel)i_model;
+    }
+
+    public void SetType(int i_type)
+    {
+        type = (ColorBlindType)i_type;
     }
 }
 
